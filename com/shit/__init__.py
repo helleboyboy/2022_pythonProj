@@ -1,3 +1,8 @@
+"""
+    增加python包，保证__init__.py文件存在
+"""
+
+
 def method01():
     print("this is method01 !")
 
