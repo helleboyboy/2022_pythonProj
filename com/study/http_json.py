@@ -67,4 +67,6 @@ while count < bounary:
     datas_collect_list.append(result_json)
 
 print("=== end ===")
+# 下面没有encode()方法就是没有进行反序列化，需要添加encode进行反序列化
+# urllib2_send_post(url, json.dumps(datas_collect_list), headers)
 urllib2_send_post(url, json.dumps(datas_collect_list).encode(), headers)
