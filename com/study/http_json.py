@@ -63,6 +63,7 @@ while count < bounary:
     result_json = getValue(cluster, service, component, component_state, host, ip)
     # 单独发送！！！
     # urllib2_send_post(url, result_json, headers)
+    # 合并为列表后推送
     datas_collect_list.append(result_json)
 
 print("=== end ===")
