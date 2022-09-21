@@ -50,7 +50,7 @@ collect_time = time()
 url = "http://192.168.52.19:4444/test_json_by_http"
 headers = ["Content-Type:application/json; charset=utf-8"]
 count = 0
-bounary = 100
+bounary = 10_11
 datas_collect_list = []
 while count < bounary:
     count = count + 1
@@ -66,7 +66,26 @@ while count < bounary:
     # 合并为列表后推送
     datas_collect_list.append(result_json)
 
-print("=== end ===")
 # 下面没有encode()方法就是没有进行反序列化，需要添加encode进行反序列化
 # urllib2_send_post(url, json.dumps(datas_collect_list), headers)
-urllib2_send_post(url, json.dumps(datas_collect_list).encode(), headers)
+# urllib2_send_post(url, json.dumps(datas_collect_list).encode(), headers)
+size = len(datas_collect_list)
+index = 1
+temp_list = []
+# 令列表的长度为500，发送合适大小的数据到http端口
+batch_size = 500
+while index <= size:
+    temp_list.append(datas_collect_list[index -1])
+    if index % batch_size == 0:
+        print("index:" + str(index) + ' data')
+        print(temp_list)
+        urllib2_send_post(url, json.dumps(temp_list).encode(), headers)
+        temp_list = []
+    index += 1
+
+if len(temp_list) != 0:
+    print("余下的:")
+    print(len(temp_list))
+    print(temp_list)
+    urllib2_send_post(url, json.dumps(temp_list).encode(), headers)
+print("=== end ===")
