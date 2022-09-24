@@ -61,7 +61,17 @@ def high_order_func(fnc, my_list):
     return result_list
 
 
-my_list = range(1,11)
+my_list = range(1, 11)
 print(high_order_func(is_evennumber_high, my_list))
 print(high_order_func(is_oddnmumber_high, my_list))
 print(high_order_func(is_larger_five_high, my_list))
+
+
+def f1(a, b):
+    return a + b
+
+
+lambda a, b: a + b
+
+print(f1(1, 2))
+print((lambda a, b: a + b)(1, 2))
