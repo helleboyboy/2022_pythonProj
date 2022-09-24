@@ -61,10 +61,10 @@ def high_order_func(fnc, my_list):
     return result_list
 
 
-my_list = range(1, 11)
-print(high_order_func(is_evennumber_high, my_list))
-print(high_order_func(is_oddnmumber_high, my_list))
-print(high_order_func(is_larger_five_high, my_list))
+# my_list = range(1, 11)
+# print(high_order_func(is_evennumber_high, my_list))
+# print(high_order_func(is_oddnmumber_high, my_list))
+# print(high_order_func(is_larger_five_high, my_list))
 
 
 def f1(a, b):
@@ -73,5 +73,15 @@ def f1(a, b):
 
 lambda a, b: a + b
 
-print(f1(1, 2))
-print((lambda a, b: a + b)(1, 2))
+# print(f1(1, 2))
+# print((lambda a, b: a + b)(1, 2))
+
+
+"""
+匿名函数： 就是一个lambda表达式；
+lambda表达式可以赋值给一个函数对象来接受，但是lambda表达式往往以匿名函数来使用
+"""
+my_list = range(1, 11)
+print(list(filter(is_evennumber_high, my_list)))
+print(list(filter(lambda i: i % 2 == 0, my_list)))
+print(list(map(lambda i: i + 10, my_list)))
