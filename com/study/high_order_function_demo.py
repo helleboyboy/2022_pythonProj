@@ -34,3 +34,34 @@ def binary_func(my_list):
 # print(binary_func(my_list))
 
 
+print("============分=================隔=======================线======================")
+
+
+def is_evennumber_high(elem):
+    if elem % 2 == 0:
+        return True
+
+
+def is_oddnmumber_high(elem):
+    if elem % 2 != 0:
+        return True
+
+
+def is_larger_five_high(elem):
+    if elem > 5:
+        return True
+
+
+def high_order_func(fnc, my_list):
+    result_list = []
+    for i in my_list:
+        # if is_larger_five_high(i):
+        if fnc(i):
+            result_list.append(i)
+    return result_list
+
+
+my_list = range(1,11)
+print(high_order_func(is_evennumber_high, my_list))
+print(high_order_func(is_oddnmumber_high, my_list))
+print(high_order_func(is_larger_five_high, my_list))
