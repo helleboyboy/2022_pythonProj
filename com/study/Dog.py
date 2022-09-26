@@ -21,16 +21,37 @@ class Dog:
     def set_name(self, name):
         self._name = name
 
-    def get_age(self):
+    # def get_age(self):
+    #     return self._age
+    #
+    # def set_age(self, age):
+    #     self._age = age
+    @property
+    def age(self):
+        """
+        方法名和属性名一直
+        @property 格式
+        :return:
+        """
         return self._age
 
-    def set_age(self, age):
+    @age.setter
+    def age(self, age):
+        """
+        必须要先有getter方法才有setter方法！！！
+        @属性.setter  格式
+        :param age:
+        :return:
+        """
         self._age = age
 
 
 dog = Dog('小黄', 11)
-dog.set_name('小黑')
-dog.set_age(10)
-print(dog.get_name())
-print(dog.get_age())
+# dog.set_name('小黑')
+# dog.set_age(10)
+# print(dog.get_name())
+# print(dog.get_age())
 
+# 通过装饰器来修饰getter和setter, 使对象实例 看起来可以 直接操作属性
+dog.age = 10
+print(dog.age)
