@@ -55,3 +55,4 @@ dog = Dog('小黄', 11)
 # 通过装饰器来修饰getter和setter, 使对象实例 看起来可以 直接操作属性
 dog.age = 10
 print(dog.age)
+print(Dog.__bases__)  # 获取Dog类的所有父类
