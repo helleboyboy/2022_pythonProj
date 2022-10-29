@@ -81,7 +81,36 @@ lambda a, b: a + b
 匿名函数： 就是一个lambda表达式；
 lambda表达式可以赋值给一个函数对象来接受，但是lambda表达式往往以匿名函数来使用
 """
-my_list = range(1, 11)
-print(list(filter(is_evennumber_high, my_list)))
-print(list(filter(lambda i: i % 2 == 0, my_list)))
-print(list(map(lambda i: i + 10, my_list)))
+my_range = range(1, 11)
+print(list(filter(is_evennumber_high, my_range)))
+print(list(filter(lambda i: i % 2 == 0, my_range)))
+print(list(map(lambda i: i + 10, my_range)))
+
+"""
+通过参数key来改变sort函数的排序规则！
+本质上也是匿名函数
+"""
+my_list = ['222', '13', '122222', '72', '4222', '6']
+my_list.sort()
+print(my_list)
+my_list.sort(key=len)
+print(my_list)
+my_list.sort(key=int)
+print(my_list)
+
+if __name__ == '__name__':
+    """
+    表示代码块的内容只有在本文件执行的时候才执行，被调用不被执行！
+    下面代码可以认为是 测试代码！！！
+    """
+    print("aaaaaaaaa")
+    print("aaaaaaaaa")
+    print("aaaaaaaaa")
+    print("aaaaaaaaa")
+    print("aaaaaaaaa")
+    print("bbbbbbbb")
+    print("bbbbbbbb")
+    print("bbbbbbbb")
+    print("bbbbbbbb")
+
+
